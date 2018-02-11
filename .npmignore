@@ -1,0 +1,6 @@
+src/
+.gitattributes
+.prettierrc
+.travis.yml
+.tslintrc.json
+tsconfig.json
