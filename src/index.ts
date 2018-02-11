@@ -1,8 +1,5 @@
 import Vue from "vue";
 
-const VUETSX = {
-    Vue,
-    VueComponent: Vue
-};
+exports.Vue = Vue;
 
-export default VUETSX;
+exports.VueComponent = Vue;

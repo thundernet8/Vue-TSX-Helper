@@ -9,7 +9,7 @@
     "license": "MIT",
     "keywords": ["vue", "typescript", "jsx"],
     "scripts": {
-        "build": "rimraf lib && tsc && cp src/*.d.ts lib/",
+        "build": "rimraf lib && tsc && cp src/types/*.d.ts lib/",
         "prepublish": "npm run build",
         "lint": "npm run lint:ts",
         "lint:ts": "tslint -e node_modules -c .tslintrc.json src/index.ts",
@@ -18,7 +18,7 @@
         "format": "prettier --write"
     },
     "lint-staged": {
-        "src/index.ts": ["format", "lint-staged:ts", "git add"]
+        "src/*.ts": ["format", "lint-staged:ts", "git add"]
     },
     "pre-commit": "lint-staged",
     "dependencies": {
