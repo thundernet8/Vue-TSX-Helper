@@ -1,0 +1,38 @@
+{
+    "name": "vue-tsx-helper",
+    "version": "0.0.1",
+    "description": "write better tsx for vue",
+    "main": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "repository": "git@github.com:thundernet8/Vue-TSX-Helper.git",
+    "author": "wuxueqian <wuxueqian2010@hotmail.com>",
+    "license": "MIT",
+    "keywords": ["vue", "typescript", "jsx"],
+    "scripts": {
+        "build": "rimraf lib && tsc && cp src/types/*.d.ts lib/",
+        "prepublish": "npm run build",
+        "lint": "npm run lint:ts",
+        "lint:ts": "tslint -e node_modules -c .tslintrc.json src/index.ts",
+        "lint-staged": "lint-staged",
+        "lint-staged:ts": "tslint --fix -c .tslintrc.json",
+        "format": "prettier --write"
+    },
+    "lint-staged": {
+        "src/*.ts": ["format", "lint-staged:ts", "git add"]
+    },
+    "pre-commit": "lint-staged",
+    "dependencies": {
+        "vue": "^2.5.13"
+    },
+    "devDependencies": {
+        "@types/node": "^9.4.5",
+        "lint-staged": "^6.1.0",
+        "mkdirp": "^0.5.1",
+        "pre-commit": "^1.2.2",
+        "prettier": "^1.10.2",
+        "rimraf": "^2.6.2",
+        "tslint": "^5.9.1",
+        "tslint-eslint-rules": "^4.1.1",
+        "typescript": "^2.7.1"
+    }
+}
