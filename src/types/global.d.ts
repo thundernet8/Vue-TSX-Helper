@@ -1,5 +1,23 @@
-import Vue, { VNode } from "vue";
+import Vue, { VNode, VNodeData } from "vue";
 import * as Dom from "./dom";
+
+declare namespace InternalJSX {
+    type KnownAttrs = Pick<
+        VNodeData,
+        "class" | "staticClass" | "style" | "key" | "ref" | "slot" | "scopedSlots"
+    > & {
+        id?: string;
+        refInFor?: boolean;
+    };
+
+    interface ElementAdditionalAttrs {
+        // TODO
+    }
+
+    type EventHandlers<E> = { [K in keyof E]?: (payload: E[K]) => void };
+
+    type ElementAttrs<T> = T & KnownAttrs & EventHandlers<Dom.EventsOn> & ElementAdditionalAttrs;
+}
 
 declare global {
     namespace JSX {
@@ -14,6 +32,10 @@ declare global {
             _children_: {}; // specify children name to use
         }
 
-        type IntrinsicElements = { [K in keyof Dom.IntrinsicElementAttributes]: any };
+        type IntrinsicElements = {
+            [K in keyof Dom.IntrinsicElementAttributes]: InternalJSX.ElementAttrs<
+                Dom.IntrinsicElementAttributes[K]
+            >
+        };
     }
 }
