@@ -17,6 +17,11 @@ declare namespace InternalJSX {
     type EventHandlers<E> = { [K in keyof E]?: (payload: E[K]) => void };
 
     type ElementAttrs<T> = T & KnownAttrs & EventHandlers<Dom.EventsOn> & ElementAdditionalAttrs;
+
+    interface AnySlotAttributes {
+        is: string;
+        [propertyName: string]: any;
+    }
 }
 
 declare global {
@@ -36,6 +41,6 @@ declare global {
             [K in keyof Dom.IntrinsicElementAttributes]: InternalJSX.ElementAttrs<
                 Dom.IntrinsicElementAttributes[K]
             >
-        };
+        } & { anyslot: InternalJSX.ElementAttrs<InternalJSX.AnySlotAttributes> };
     }
 }
