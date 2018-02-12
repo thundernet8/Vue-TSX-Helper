@@ -103,3 +103,7 @@ export default class WrapTestComponent extends VueComponent<{}> {
 ![intellisense1](screenshots/intellisense-1.png)
 
 ![intellisense2](screenshots/intellisense-2.png)
+
+## Boilerplate
+
+Visit [Vue-TS-Boilerplate](https://github.com/thundernet8/Vue-TS-Boilerplate) for a full demo.
