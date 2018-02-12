@@ -85,6 +85,19 @@ export default class WrapTestComponent extends VueComponent<IProps> {
 }
 ```
 
+For components supplied by other libraries, try:
+
+```typescript
+@Component
+export default class WrapTestComponent extends VueComponent<{}> {
+    @Prop() msg;
+
+    render(h) {
+        render <anyslot is="router-link" to="/">link</anyslot>
+    }
+}
+```
+
 ## Screenshots
 
 ![intellisense1](screenshots/intellisense-1.png)
