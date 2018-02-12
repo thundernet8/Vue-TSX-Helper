@@ -1,6 +1,6 @@
 {
     "name": "vue-tsx-helper",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "write better tsx for vue",
     "main": "lib/index.js",
     "typings": "lib/index.d.ts",
