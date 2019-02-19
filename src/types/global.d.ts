@@ -11,7 +11,7 @@ declare namespace InternalJSX {
     };
 
     interface ElementAdditionalAttrs {
-        _children_: any;
+        _children_?: any;
     }
 
     type EventHandlers<E> = { [K in keyof E]?: (payload: E[K]) => void };
