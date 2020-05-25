@@ -4,7 +4,7 @@ import * as Dom from "./dom";
 declare namespace InternalJSX {
     type KnownAttrs = Pick<
         VNodeData,
-        "class" | "staticClass" | "style" | "key" | "ref" | "slot" | "scopedSlots"
+        "class" | "staticClass" | "style" | "key" | "ref" | "slot" | "scopedSlots" | "props" | "attrs" | "on" | "nativeOn" | "directives"
     > & {
         id?: string;
         refInFor?: boolean;
